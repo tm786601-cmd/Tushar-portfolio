@@ -1,508 +1,531 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <meta name="google-site-verification" content="O-EEaVTVIXziINRVn_yzIBddQusHZ3CCxxXZ8y29C1s" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tushar Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tushar Portfolio</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Boxicons -->
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-      scroll-behavior:smooth;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
 
-    :root{
-      --bg:#181818;
-      --text:#ffffff;
-      --card:#242424;
-      --main:#a200ff;
-    }
+:root{
+--bg:#181818;
+--text:#ffffff;
+--card:#242424;
+--main:#a200ff;
+}
 
-    body{
-      background:var(--bg);
-      color:var(--text);
-      overflow-x:hidden;
-      transition:0.4s;
-    }
+body{
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+transition:0.4s;
+}
 
-    .light-mode{
-      --bg:#f5f5f5;
-      --text:#111111;
-      --card:#e4e4e4;
-    }
+.light-mode{
+--bg:#f5f5f5;
+--text:#111;
+--card:#e4e4e4;
+}
 
-    /* Navbar */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
 
-    nav{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      padding:20px 10%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(0,0,0,0.7);
-      backdrop-filter:blur(10px);
-      z-index:1000;
-    }
+.logo{
+font-size:2rem;
+font-weight:800;
+background:linear-gradient(to right,#ff4d4d,#a200ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    .logo{
-      font-size:2rem;
-      font-weight:800;
-      background:linear-gradient(to right,#ff4d4d,#a200ff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+.links{
+display:flex;
+gap:30px;
+list-style:none;
+}
 
-    .links{
-      display:flex;
-      gap:30px;
-      list-style:none;
-    }
+.links a{
+color:var(--text);
+text-decoration:none;
+font-weight:500;
+}
 
-    .links a{
-      color:var(--text);
-      text-decoration:none;
-      transition:0.3s;
-      font-weight:500;
-    }
+.links a:hover{
+color:var(--main);
+}
 
-    .links a:hover{
-      color:var(--main);
-    }
+#theme-toggle{
+font-size:2rem;
+cursor:pointer;
+}
 
-    .nav-right{
-      display:flex;
-      align-items:center;
-      gap:20px;
-    }
+#home{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 10%;
+}
 
-    #theme-toggle{
-      font-size:2rem;
-      cursor:pointer;
-      color:var(--text);
-    }
+#home img{
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid var(--main);
+margin-bottom:25px;
+}
 
-    /* Home */
+h1{
+font-size:4rem;
+margin-bottom:10px;
+}
 
-    #home{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:120px 10%;
-    }
+h1 span,.heading span{
+background:linear-gradient(to right,#ff4d4d,#a200ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    #home img{
-      width:220px;
-      height:220px;
-      border-radius:50%;
-      object-fit:cover;
-      border:4px solid var(--main);
-      margin-bottom:25px;
-      box-shadow:0 0 30px rgba(162,0,255,0.5);
-    }
+h3{
+font-size:2rem;
+margin-bottom:20px;
+}
 
-    h1{
-      font-size:4rem;
-      margin-bottom:10px;
-    }
+p{
+max-width:700px;
+line-height:1.8;
+opacity:0.8;
+}
 
-    h1 span,
-    .heading span{
-      background:linear-gradient(to right,#ff4d4d,#a200ff);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+.btn-box{
+margin-top:30px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
 
-    h3{
-      font-size:2rem;
-      margin-bottom:20px;
-      opacity:0.9;
-    }
+.btn{
+padding:12px 30px;
+border:2px solid var(--main);
+border-radius:10px;
+color:white;
+background:var(--main);
+text-decoration:none;
+font-weight:600;
+}
 
-    p{
-      max-width:700px;
-      line-height:1.8;
-      opacity:0.8;
-    }
+#about,
+#services,
+#skills,
+#contact{
+padding:100px 10%;
+}
 
-    .btn-box{
-      margin-top:30px;
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
+#about{
+background:#202020;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:50px;
+flex-wrap:wrap;
+}
 
-    .btn{
-      padding:12px 30px;
-      border:2px solid var(--main);
-      border-radius:10px;
-      color:white;
-      background:var(--main);
-      text-decoration:none;
-      transition:0.3s;
-      cursor:pointer;
-      font-weight:600;
-    }
+#about img{
+width:320px;
+border-radius:20px;
+}
 
-    .btn:hover{
-      transform:translateY(-5px);
-      box-shadow:0 0 20px rgba(162,0,255,0.5);
-    }
+.heading{
+text-align:center;
+font-size:3rem;
+margin-bottom:50px;
+}
 
-    /* About */
+/* Glow effect */
 
-    #about{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:60px;
-      padding:100px 10%;
-      background:#202020;
-      flex-wrap:wrap;
-    }
+.logo{
+font-size:2rem;
+font-weight:800;
+background:linear-gradient(to right,#ff4d4d,#a200ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 10px rgba(162,0,255,.7);
+}
 
-    #about img{
-      width:350px;
-      border-radius:20px;
-      box-shadow:0 0 20px rgba(162,0,255,0.3);
-    }
+/* Profile image glow */
 
-    .about-box{
-      max-width:600px;
-    }
+#home img{
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid var(--main);
+box-shadow:
+0 0 15px rgba(162,0,255,.5),
+0 0 35px rgba(162,0,255,.4),
+0 0 60px rgba(162,0,255,.3);
+}
 
-    .about-box h2{
-      font-size:3rem;
-      margin-bottom:20px;
-    }
+/* Card glow */
 
-    /* Services */
+.box{
+background:var(--card);
+padding:35px;
+border-radius:20px;
+transition:.3s;
+}
 
-    #services{
-      padding:100px 10%;
-    }
+.box:hover{
+transform:translateY(-8px);
+box-shadow:
+0 0 15px rgba(162,0,255,.4),
+0 0 30px rgba(162,0,255,.3);
+}
 
-    .heading{
-      text-align:center;
-      font-size:3rem;
-      margin-bottom:50px;
-    }
+/* Button glow */
 
-    .services-container{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
-    }
+.btn{
+padding:12px 30px;
+border:2px solid var(--main);
+border-radius:10px;
+background:var(--main);
+color:white;
+text-decoration:none;
+font-weight:600;
+box-shadow:0 0 15px rgba(162,0,255,.4);
+}
 
-    .box{
-      background:var(--card);
-      padding:40px;
-      border-radius:20px;
-      text-align:center;
-      transition:0.4s;
-    }
+.btn:hover{
+box-shadow:
+0 0 15px rgba(162,0,255,.6),
+0 0 35px rgba(162,0,255,.4);
+}
 
-    .box:hover{
-      transform:translateY(-10px);
-      box-shadow:0 0 20px rgba(162,0,255,0.4);
-    }
+/* Section title glow */
 
-    .box i{
-      font-size:3rem;
-      margin-bottom:15px;
-      color:var(--main);
-    }
+.heading span{
+background:linear-gradient(to right,#ff4d4d,#a200ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 15px rgba(162,0,255,.5);
+}
 
-    .box h2{
-      margin-bottom:10px;
-    }
+.services-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
 
-    /* Contact */
+.box{
+background:var(--card);
+padding:35px;
+border-radius:20px;
+text-align:center;
+transition:0.3s;
+}
 
-    #contact{
-      padding:100px 10%;
-    }
+.box:hover{
+transform:translateY(-8px);
+}
 
-    form{
-      max-width:650px;
-      margin:auto;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-    }
+.box i{
+font-size:3rem;
+color:var(--main);
+margin-bottom:15px;
+}
 
-    input,
-    textarea{
-      padding:15px;
-      border:none;
-      border-radius:10px;
-      background:var(--card);
-      color:var(--text);
-      outline:none;
-      font-size:1rem;
-    }
+form{
+max-width:650px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
 
-    textarea{
-      height:150px;
-      resize:none;
-    }
+input,textarea{
+padding:15px;
+border:none;
+border-radius:10px;
+background:var(--card);
+color:var(--text);
+}
 
-    .contact-info{
-      margin-top:40px;
-      text-align:center;
-    }
+textarea{
+height:150px;
+resize:none;
+}
 
-    .contact-info p{
-      margin:10px 0;
-      font-size:1.1rem;
-    }
+.contact-info{
+margin-top:30px;
+text-align:center;
+}
 
-    .contact-info i{
-      color:var(--main);
-      margin-right:8px;
-    }
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2rem;
+text-decoration:none;
+}
 
-    /* WhatsApp Floating Button */
+@media(max-width:768px){
 
-    .whatsapp{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      background:#25d366;
-      color:white;
-      width:60px;
-      height:60px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:2rem;
-      text-decoration:none;
-      box-shadow:0 0 15px rgba(0,0,0,0.3);
-      z-index:1000;
-    }
+.links{
+display:none;
+}
 
-    /* Responsive */
+h1{
+font-size:2.5rem;
+}
 
-    @media(max-width:768px){
+h3{
+font-size:1.5rem;
+}
 
-      nav{
-        padding:20px 5%;
-      }
+}
 
-      .links{
-        display:none;
-      }
-
-      h1{
-        font-size:2.5rem;
-      }
-
-      h3{
-        font-size:1.4rem;
-      }
-
-      #about{
-        text-align:center;
-      }
-
-      #about img{
-        width:90%;
-      }
-
-    }
-
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- Navbar -->
+<nav>
 
-  <nav>
+<a href="#" class="logo">Tushar</a>
 
-    <a href="#" class="logo">Tushar</a>
+<ul class="links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
 
-    <ul class="links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+</ul>
 
-    <div class="nav-right">
-      <i class='bx bx-moon' id="theme-toggle"></i>
-    </div>
+<i class='bx bx-moon' id="theme-toggle"></i>
 
-  </nav>
+</nav>
 
-  <!-- Home -->
+<section id="home">
 
-  <section id="home">
+<img src="t2.jpeg" alt="Tushar">
 
-    <img src="t2.jpeg" alt="Tushar">
+<h1>Hello, I'm <span>Tushar</span></h1>
 
-    <h1>Hello, I'm <span>Tushar</span></h1>
+<h3>Graphic Designer</h3>
 
-    <h3>Graphic Designer</h3>
+<p>
+Creative Graphic Designer based in India.
+ I create modern brand visuals, social media
+  designs, posters, banners, and promotional 
+  content for new businesses. Passionate about
+   clean and creative designs that help brands
+    grow and attract attention online. I focus on quality, modern style,
+ and delivering visuals that match each brand’s identity perfectly.
+</p>
 
-    <p>
-      Creative Graphic Designer based in India.
-      I create modern brand visuals, posters,
-      banners and social media designs that help
-      brands stand out online.
-    </p>
+<div class="btn-box">
+<a href="#contact" class="btn">Hire Me</a>
+<a href="#about" class="btn">About Me</a>
+<a href="gallery.html" class="btn">View My Designs</a>
+</div>
 
-    <div class="btn-box">
-      <a href="#contact" class="btn">Hire Me</a>
-      <a href="#about" class="btn">About Me</a>
-    </div>
+</section>
 
-  </section>
+<section id="about">
 
-  <!-- About -->
+<img src="tushar.jpeg" alt="Tushar">
 
-  <section id="about">
+<div>
+<h2 class="heading"><span>About Me</span></h2>
 
-    <img src="tushar.jpeg" alt="About">
+<p>
+I’m Tushar, a creative graphic designer based in
+ India, passionate about creating modern and
+  eye-catching visuals for brands and businesses.
+   I specialize in social media designs, banners,
+    posters, and promotional content that help brands 
+    stand out online. I enjoy turning ideas into professional 
+    designs with a clean and creative style while
+ focusing on quality and attention to detail.
+</p>
 
-    <div class="about-box">
+</div>
+</section>
 
-      <h2><span>About Me</span></h2>
+<section id="services">
 
-      <p>
-        I'm Tushar, a passionate graphic designer
-        focused on creating clean, modern and
-        eye-catching visuals for brands and businesses.
-        I specialize in posters, banners,
-        social media creatives and branding designs.
-      </p>
+<h1 class="heading"><span>Services</span></h1>
 
-    </div>
+<div class="services-container">
 
-  </section>
+<div class="box">
+<i class='bx bx-palette'></i>
+<h2>Graphic Design</h2>
+</div>
 
-  <!-- Services -->
+<div class="box">
+<i class='bx bx-image'></i>
+<h2>Social Media Design</h2>
+</div>
 
-  <section id="services">
+<div class="box">
+<i class='bx bx-bulb'></i>
+<h2>Brand Identity</h2>
+</div>
 
-    <h1 class="heading">
-      <span>Services</span>
-    </h1>
+</div>
+</section>
 
-    <div class="services-container">
+<section id="skills">
 
-      <div class="box">
-        <i class='bx bx-palette'></i>
-        <h2>Graphic Design</h2>
-        <p>Creative and modern designs for brands.</p>
-      </div>
+<h1 class="heading">
+<span>Skills</span>
+</h1>
 
-      <div class="box">
-        <i class='bx bx-image'></i>
-        <h2>Social Media Design</h2>
-        <p>Instagram, Facebook and ad creatives.</p>
-      </div>
+<div class="services-container">
 
-      <div class="box">
-        <i class='bx bx-bulb'></i>
-        <h2>Brand Identity</h2>
-        <p>Professional branding and visual identity.</p>
-      </div>
+<div class="box">
+<i class='bx bx-palette'></i>
+<h2>Graphic Design</h2>
+</div>
 
-    </div>
+<div class="box">
+<i class='bx bx-brush'></i>
+<h2>Brand Design</h2>
+</div>
 
-  </section>
+<div class="box">
+<i class='bx bx-devices'></i>
+<h2>Social Media Design</h2>
+</div>
 
-  <!-- Contact -->
+<div class="box">
+<i class='bx bx-image'></i>
+<h2>Poster & Banner Design</h2>
+</div>
 
-  <section id="contact">
+<div class="box">
+<i class='bx bx-camera'></i>
+<h2>Thumbnail Design</h2>
+</div>
 
-    <h1 class="heading">
-      <span>Contact Me</span>
-    </h1>
+<div class="box">
+<i class='bx bx-edit'></i>
+<h2>Creative Editing</h2>
+</div>
 
-    <!-- Working Contact Form -->
+<div class="box">
+<i class='bx bx-layer'></i>
+<h2>Canva Design</h2>
+</div>
 
-    <form action="https://formsubmit.co/tm1050932@gmail.com" method="POST">
+<div class="box">
+<i class='bx bx-photo-album'></i>
+<h2>Adobe Photoshop</h2>
+</div>
 
-      <input type="hidden" name="_captcha" value="false">
+<div class="box">
+<i class='bx bx-bulb'></i>
+<h2>Visual Branding</h2>
+</div>
 
-      <input type="text" name="name" placeholder="Your Name" required>
+<div class="box">
+<i class='bx bx-pencil'></i>
+<h2>Content Creation</h2>
+</div>
 
-      <input type="email" name="email" placeholder="Your Email" required>
+</div>
 
-      <textarea name="message" placeholder="Your Message" required></textarea>
+</section>
 
-      <button type="submit" class="btn">
-        Send Message
-      </button>
+<section id="contact">
 
-    </form>
+<h1 class="heading">
+<span>Contact Me</span>
+</h1>
 
-    <div class="contact-info">
+<form action="https://formsubmit.co/tm1050932@gmail.com" method="POST">
 
-      <p>
-        <i class='bx bx-phone'></i>
-        9602962076
-      </p>
+<input type="hidden" name="_captcha" value="false">
 
-      <p>
-        <i class='bx bx-envelope'></i>
-        tm1050932@gmail.com
-      </p>
+<input type="text" name="name" placeholder="Your Name" required>
 
-    </div>
+<input type="email" name="email" placeholder="Your Email" required>
 
-  </section>
+<textarea name="message" placeholder="Your Message"></textarea>
 
-  <!-- WhatsApp Button -->
+<button class="btn">Send Message</button>
 
-  <a href="https://wa.me/919602962076" class="whatsapp" target="_blank">
-    <i class='bx bxl-whatsapp'></i>
-  </a>
+</form>
 
-  <!-- JavaScript -->
+<div class="contact-info">
 
-  <script>
+<p>📞 9602962076</p>
 
-    const themeToggle = document.getElementById("theme-toggle");
+<p>✉️ tm1050932@gmail.com</p>
 
-    themeToggle.onclick = () => {
+</div>
 
-      document.body.classList.toggle("light-mode");
+</section>
 
-      if(document.body.classList.contains("light-mode")){
+<a href="https://wa.me/919602962076" class="whatsapp" target="_blank">
+<i class='bx bxl-whatsapp'></i>
+</a>
 
-        themeToggle.classList.replace("bx-moon","bx-sun");
+<script>
 
-      }else{
+const themeToggle=document.getElementById("theme-toggle");
 
-        themeToggle.classList.replace("bx-sun","bx-moon");
+themeToggle.onclick=()=>{
 
-      }
+document.body.classList.toggle("light-mode");
 
-    };
+if(document.body.classList.contains("light-mode")){
+themeToggle.classList.replace("bx-moon","bx-sun");
+}else{
+themeToggle.classList.replace("bx-sun","bx-moon");
+}
 
-  </script>
+};
+
+</script>
 
 </body>
 </html>
